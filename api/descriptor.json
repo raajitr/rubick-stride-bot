@@ -1,0 +1,90 @@
+{
+  "baseUrl": "request.url_root",
+  "key": "rubick",
+  "lifecycle": {
+    "installed": "/lifecycle/installed"
+  },
+  "modules": {
+    "chat:bot": [
+      {
+        "key": "rubick",
+        "mention": {
+          "url": "/webhooks/mention"
+        }
+      }
+    ],
+    "chat:dialog": [
+      {
+        "key": "refapp-dialog",
+        "title": {
+          "value": "App Dialog"
+        },
+        "options": {
+          "size": {
+            "width": "500px",
+            "height": "300px"
+          },
+          "primaryAction": {
+            "key": "action-appendMessage",
+            "name": {
+              "value": "Append Message"
+            }
+          },
+          "secondaryActions": [
+            {
+              "key": "action-close",
+              "name": {
+                "value": "Close"
+              }
+            },
+            {
+              "key": "action-openSidebar",
+              "name": {
+                "value": "Open Sidebar"
+              }
+            }
+          ]
+        },
+        "url": "/dialog",
+        "authentication": "jwt"
+      },
+      {
+        "key": "refapp-dialog-config",
+        "title": {
+          "value": "App Configuration"
+        },
+        "options": {
+          "size": {
+            "width": "500px",
+            "height": "300px"
+          },
+          "primaryAction": {
+            "key": "action-save",
+            "name": {
+              "value": "Save"
+            }
+          },
+          "secondaryActions": [
+            {
+              "key": "action-close",
+              "name": {
+                "value": "Close"
+              }
+            }
+          ]
+        },
+        "url": "/module/config",
+        "authentication": "jwt"
+      }
+    ],
+    "chat:inputAction": [
+      {
+        "key": "app-input-action",
+        "name": {
+          "value": "Open Dialog..."
+        },
+        "target": "refapp-dialog"
+      }
+    ]
+  }
+}
